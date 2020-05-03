@@ -7,9 +7,9 @@ Features:
 - Highlight every quarter hour
 
 Libarys:
-- FastLED
-- WS2812DisplayDriver
-- NTPClient
-- Timezone
+- [FastLED](https://github.com/FastLED/FastLED)
+- [WS2812DisplayDriver](https://github.com/DerBrecher/RGB_LED_Display_Driver)
+- [NTPClient](https://github.com/arduino-libraries/NTPClient)
+- [Timezone](https://github.com/JChristensen/Timezone)
 - ESP8266WiFi (part of ESP8266 core)
 - WiFiUdp (part of ESP8266 core)
