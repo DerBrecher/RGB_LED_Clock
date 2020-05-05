@@ -14,7 +14,10 @@
 #define NUM_LEDS NUM_ROWS*NUM_LINES
 #define DATA_PIN 2
 #define MAX_DISPLAY_BRIGHTNESS 80
-#define MIMIMUM_LIGHT_THRESHOLD 10
+#define MIMIMUM_LIGHT_THRESHOLD 0
+#define AMBIENT_STANDBY_THRESHOLD 10
+#define MILLIS_SHOW_DATE 5000
+
 
 CRGB leds[NUM_LEDS];
 CRGB frameBuffer[NUM_ROWS][NUM_LINES];
@@ -24,9 +27,11 @@ Display ledDisplay(frameBuffer, leds, true);
 // ------------- Ambient Light -------------
 #define ANALOG_PIN A0
 
+int outsideBrightness = 0;
+int displayBrightness = 0;
 const float alpha = 0.01;
 double dataFiltered[] = {0, 0};
-
+boolean standby = false;
 
 // ------------- Network -------------
 WiFiUDP ntpUDP;
@@ -48,7 +53,8 @@ uint32_t brightnessUpdateInterval = 20;
 // ------------- Marking -------------
 #define DEFAULT_COLOR CRGB(255, 255, 255)
 #define QUARTERHOUR_COLOR CRGB(255, 255, 0)
-#define LEED_COLOR CRGB(0, 255, 255)
+#define LEED_COLOR CRGB(255, 127, 0)
+#define DATE_COLOR CRGB(0, 255, 127)
 
 #define MARKTIME 3
 
@@ -71,7 +77,7 @@ void loop() {
   if (millis() - displayUpdateMillis > displayUpdateInterval) {
     //epochTime++; //For testing
     displayUpdateMillis = millis();
-    updateClock();
+    updateDisplay();
   }
 
   if (millis() - brightnessUpdateMillis > brightnessUpdateInterval) {

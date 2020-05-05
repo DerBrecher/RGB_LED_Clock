@@ -6,9 +6,9 @@ void updateBrightness() {
   int newBrightness = analogRead(ANALOG_PIN);
   dataFiltered[1] = alpha * newBrightness + (1 - alpha) * dataFiltered[0];
   dataFiltered[0] = dataFiltered[1];
-  int outsideBrightness = dataFiltered[1];
+  outsideBrightness = dataFiltered[1];
 
-  int displayBrightness = map(outsideBrightness, MIMIMUM_LIGHT_THRESHOLD, 1023, 1, MAX_DISPLAY_BRIGHTNESS);
+  displayBrightness = map(outsideBrightness, MIMIMUM_LIGHT_THRESHOLD, 1023, 1, MAX_DISPLAY_BRIGHTNESS);
   displayBrightness = constrain(displayBrightness, 1, MAX_DISPLAY_BRIGHTNESS);
   LEDS.setBrightness(displayBrightness);
   FastLED.show();
