@@ -1,7 +1,11 @@
+void maintainWifi(){
+  wifiMulti.run(CONNECTTIMEOUTMS);
+}
+
 void setupWifi() {
-  WiFi.begin(SSIDHDS, WPA2HDS);
-  while ( WiFi.status() != WL_CONNECTED ) {
-    delay ( 500 );
-    Serial.print ( "." );
-  }
+  WiFi.mode(WIFI_STA);
+
+  wifiMulti.addAP(SSIDHDS, WPA2HDS);
+  wifiMulti.addAP(SSIDHDS2, WPA2HDS2);
+  wifiMulti.addAP(SSIDSB, WPA2SB);
 }

@@ -14,7 +14,6 @@ void updateDisplayedDate() {
   ledDisplay.setString(buf);
   ledDisplay.show();
   delay(1);
-  FastLED.show();
 }
 
 void updateDisplayedTime() {
@@ -26,7 +25,6 @@ void updateDisplayedTime() {
   ledDisplay.setString(buf);
   ledDisplay.show();
   delay(1);
-  FastLED.show();
 
   //Serial.print(buf);
   //Serial.println("");

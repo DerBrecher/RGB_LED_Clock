@@ -1,11 +1,9 @@
-#define FASTLED_ALLOW_INTERRUPTS 0 //Needed or else WS2812 will flicker
-
-#include <FastLED.h>
 #include <WS2812DisplayDriver.h>
+#include <NeoPixelBus.h>
 #include <secrets.h>
 #include <NTPClient.h>
 #include <Timezone.h>
-#include <ESP8266WiFi.h>
+#include <ESP8266WiFiMulti.h>
 #include <WiFiUdp.h>
 
 // ------------- Display -------------
@@ -16,12 +14,13 @@
 #define MAX_DISPLAY_BRIGHTNESS 80
 #define MIMIMUM_LIGHT_THRESHOLD 0
 #define AMBIENT_STANDBY_THRESHOLD 10
-#define MILLIS_SHOW_DATE 5000
+#define MILLIS_SHOW_DATE 10000
 
 
-CRGB leds[NUM_LEDS];
-CRGB frameBuffer[NUM_ROWS][NUM_LINES];
-Display ledDisplay(frameBuffer, leds, true);
+NeoPixelBus<NeoGrbFeature, NeoEsp8266Dma800KbpsMethod> strip(NUM_LEDS);
+
+Display ledDisplay(&strip, true);
+//Display ledDisplay(frameBuffer, leds);
 
 
 // ------------- Ambient Light -------------
@@ -34,8 +33,9 @@ double dataFiltered[] = {0, 0};
 boolean standby = false;
 
 // ------------- Network -------------
+ESP8266WiFiMulti wifiMulti;
 WiFiUDP ntpUDP;
-
+#define CONNECTTIMEOUTMS 5000
 
 // ------------- NTP Time -------------
 NTPClient timeClient(ntpUDP);
@@ -51,10 +51,10 @@ uint32_t brightnessUpdateMillis = 0;
 uint32_t brightnessUpdateInterval = 20;
 
 // ------------- Marking -------------
-#define DEFAULT_COLOR CRGB(255, 255, 255)
-#define QUARTERHOUR_COLOR CRGB(255, 255, 0)
-#define LEED_COLOR CRGB(255, 127, 0)
-#define DATE_COLOR CRGB(0, 255, 127)
+#define DEFAULT_COLOR RGBPixel(255, 255, 255)
+#define QUARTERHOUR_COLOR RGBPixel(255, 255, 0)
+#define LEED_COLOR RGBPixel(0, 255, 0)
+#define DATE_COLOR RGBPixel(0, 255, 127)
 
 #define MARKTIME 3
 
@@ -74,6 +74,8 @@ void setup() {
 //time_t epochTime = 1588505815; //for testing
 
 void loop() {
+  maintainWifi();
+  
   if (millis() - displayUpdateMillis > displayUpdateInterval) {
     //epochTime++; //For testing
     displayUpdateMillis = millis();
