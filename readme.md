@@ -7,9 +7,10 @@ Features:
 - Highlight every quarter hour
 
 Libarys:
-- [FastLED](https://github.com/FastLED/FastLED)
+- ([FastLED](https://github.com/FastLED/FastLED)) now using Neopixel
+- [NeoPixelBus](https://github.com/Makuna/NeoPixelBus)
 - [WS2812DisplayDriver](https://github.com/DerBrecher/RGB_LED_Display_Driver)
 - [NTPClient](https://github.com/arduino-libraries/NTPClient)
 - [Timezone](https://github.com/JChristensen/Timezone)
-- ESP8266WiFi (part of ESP8266 core)
+- (ESP8266WiFi (part of ESP8266 core)) now using ESP8266WiFiMulti
 - WiFiUdp (part of ESP8266 core)
