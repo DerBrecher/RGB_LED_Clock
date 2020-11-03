@@ -7,7 +7,7 @@ Features:
 - Highlight every quarter hour
 
 Libarys:
-- ([FastLED](https://github.com/FastLED/FastLED)) now using Neopixel
+- ([FastLED](https://github.com/FastLED/FastLED)) now using NeoPixelBus
 - [NeoPixelBus](https://github.com/Makuna/NeoPixelBus)
 - [WS2812DisplayDriver](https://github.com/DerBrecher/RGB_LED_Display_Driver)
 - [NTPClient](https://github.com/arduino-libraries/NTPClient)
