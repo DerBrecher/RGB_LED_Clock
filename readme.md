@@ -1,4 +1,4 @@
-#RGB LED Clock
+# RGB LED Clock
 RGB LED clock made with WS2812 leds.
 Features:
 - Ambient light sensor for automatic dimming
