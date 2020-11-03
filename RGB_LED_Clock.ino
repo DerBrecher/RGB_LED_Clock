@@ -29,7 +29,7 @@ Display ledDisplay(&strip, true);
 int outsideBrightness = 0;
 int displayBrightness = 0;
 const float alpha = 0.01;
-double dataFiltered[] = {0, 0};
+float dataFiltered[] = {0, 0};
 boolean standby = false;
 
 // ------------- Network -------------
@@ -55,8 +55,10 @@ uint32_t brightnessUpdateInterval = 20;
 #define QUARTERHOUR_COLOR RGBPixel(255, 255, 0)
 #define LEED_COLOR RGBPixel(0, 255, 0)
 #define DATE_COLOR RGBPixel(0, 255, 127)
+#define NIGHT_COLOR RGBPixel(255, 0, 0)
 
 #define MARKTIME 3
+#define NIGHTTHRESHOLD 2
 
 
 void setup() {

@@ -81,7 +81,12 @@ void markHours(time_t utc) {
 
   switch (markState) {
     case defaultState:
-      ledDisplay.setStringColor(DEFAULT_COLOR);
+      if (displayBrightness <= NIGHTTHRESHOLD) {
+        ledDisplay.setStringColor(NIGHT_COLOR);
+      }
+      else {
+        ledDisplay.setStringColor(DEFAULT_COLOR);
+      }
       break;
     case markQuarterState:
       ledDisplay.setStringColor(QUARTERHOUR_COLOR);

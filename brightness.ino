@@ -11,10 +11,9 @@ void updateBrightness() {
   displayBrightness = map(outsideBrightness, MIMIMUM_LIGHT_THRESHOLD, 1023, 1, MAX_DISPLAY_BRIGHTNESS);
   displayBrightness = constrain(displayBrightness, 1, MAX_DISPLAY_BRIGHTNESS);
   ledDisplay.setBrightness(displayBrightness);
-  //FastLED.show();
 
-  Serial.print("Outside ");
-  Serial.print(outsideBrightness);
-  Serial.print(" Display ");
-  Serial.println(displayBrightness);
+//  Serial.print("Outside ");
+//  Serial.print(outsideBrightness);
+//  Serial.print(" Display ");
+//  Serial.println(displayBrightness);
 }
