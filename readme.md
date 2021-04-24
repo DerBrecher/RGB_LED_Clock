@@ -1,6 +1,6 @@
 # RGB LED Clock
 RGB LED clock made with WS2812 leds. \
-![alt text](https://github.com/DerBrecher/RGB_LED_Clock/blob/master/images/clock.JPG?raw=true)\
+![alt text](https://raw.githubusercontent.com/DerBrecher/RGB_LED_Clock/master/images/clock.jpg)\
 The finished RGB LED Clock (roughly 30 cm wide). \
 \
 ![alt text](https://github.com/DerBrecher/RGB_LED_Clock/blob/master/images/controller_and_light_sensor.JPG?raw=true)\
