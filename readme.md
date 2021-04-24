@@ -1,7 +1,15 @@
 # RGB LED Clock
-RGB LED clock made with WS2812 leds.
+RGB LED clock made with WS2812 leds. \
+![alt text](https://raw.githubusercontent.com/DerBrecher/RGB_LED_Clock/master/images/clock.jpg)\
+The finished RGB LED Clock (roughly 30 cm wide). \
+\
+![alt text](https://raw.githubusercontent.com/DerBrecher/RGB_LED_Clock/master/images/controller_and_light_sensor.jpg)\
+Controller and ambient light sensor.
+
 Features:
 - Ambient light sensor for automatic dimming
+- Night mode
+- Shows current date when coming out of night mode
 - Uses NTP to get the current time (thanks to [NTPClient libary](https://github.com/arduino-libraries/NTPClient))
 - Support for timezones and day light saving time (thanks to [Timezone libary](https://github.com/JChristensen/Timezone))
 - Highlight every quarter hour
