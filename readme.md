@@ -4,7 +4,7 @@ RGB LED clock made with WS2812 leds. \
 The finished RGB LED Clock (roughly 30 cm wide). \
 \
 ![alt text](https://raw.githubusercontent.com/DerBrecher/RGB_LED_Clock/master/images/controller_and_light_sensor.jpg)\
-Controller and ambient light sensor. \
+Controller and ambient light sensor.
 
 Features:
 - Ambient light sensor for automatic dimming
